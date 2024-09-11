@@ -2,32 +2,51 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import dashboardLogo from './assets/dashboard logo.webp'
+import InputBar from './components/InputBar';
 
+const project_name = 'Finance Dashboard'
+
+function Header() {
+  return (
+    <>
+    <header>
+      <h1><b>{project_name}</b></h1>
+      <p>calculating your stock...</p>
+    </header>
+  </>
+  )
+}
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img src={dashboardLogo} className="logo" alt="dashboard logo" />
+        <Header />
+        <main>
+        <div className="input-container">
+        < InputBar />  
+        < InputBar />  
+        < InputBar />  
+          <button
+          style={{
+            padding: '30px 30px',
+            marginTop: '100px',
+            borderRadius: '7px',
+            border: 'none',
+            backgroundColor: '#007bff',
+            color: '#fff',
+            fontSize: '20px',
+            cursor: 'pointer'}}>
+          Add Stock
+          </button>
+        </div>
+        <h1>Stock List</h1>
+        <p>No stock...</p>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
